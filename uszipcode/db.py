@@ -50,12 +50,18 @@ def is_db_file_exists(db_file_dir):
 
 def connect_to_simple_zipcode_db(db_file_dir):
     return engine_creator.create_sqlite(
-        path=get_simple_db_file_path(db_file_dir).abspath)
+        path=get_simple_db_file_path(db_file_dir).abspath,
+        pool_recycle=3600, isolation_level="READ UNCOMMITTED",
+        connect_args={'check_same_thread': False}
+    )
 
 
 def connect_to_zipcode_db(db_file_dir):
     return engine_creator.create_sqlite(
-        path=get_db_file_path(db_file_dir).abspath)
+        path=get_db_file_path(db_file_dir).abspath,
+        pool_recycle=3600, isolation_level="READ UNCOMMITTED",
+        connect_args={'check_same_thread': False}
+    )
 
 
 def download_simple_db_file(db_file_dir):
