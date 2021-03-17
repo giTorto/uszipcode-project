@@ -1,4 +1,4 @@
-attrs
-sqlalchemy
-pathlib_mate
-requests
+attrs==20.3.0
+sqlalchemy==1.3.23
+pathlib-mate==1.0.1
+requests==2.25.0
